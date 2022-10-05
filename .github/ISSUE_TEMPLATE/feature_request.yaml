@@ -1,0 +1,20 @@
+name: Feature Request
+description: You have a bigly idea that ought to be incorporated into PyUVS.
+labels: enhancement
+
+body:
+  - type: textarea
+    attributes:
+      label: Feature request
+      description: >-
+        Please describe the feature you'd like to see added to PyUVS.
+    validations:
+      required: true
+
+  - type: input
+    attributes:
+      label: Priority
+      description: >-
+        How pressing is this issue?
+    validations:
+      required: true
