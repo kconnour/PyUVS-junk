@@ -1,30 +1,18 @@
 from datetime import datetime
 import pytest
-from pyuvs import DataFilename
+from pyuvs import Orbit, DataFilename
 
 
-'''class TestColumn:
+class TestOrbit:
     @pytest.fixture
-    def non_numeric_angles(self) -> float:
-        yield np.array([0, 10, {'a': 1}])
+    def orbit(self):
+        yield Orbit(3453)
 
-    def test_negative_optical_depth_raises_value_error(self):
-        od = np.linspace(-0.1, 1, num=15)
-        ssa = np.ones((15,))
-        pmom = np.broadcast_to(decompose_hg(0, 128), (15, 128)).T
+    def test_orbit_yields_known_code(self, orbit):
+        assert orbit.code == 'orbit03453'
 
-        with pytest.raises(ValueError):
-            Column(od, ssa, pmom)
-
-    def test_od_gives_expected_result(self):
-        od0 = [1]
-        od1 = [2]
-        ssa = [1]
-        pmom = np.array([[0, 1, 2]]).T
-        col0 = Column(od0, ssa, pmom)
-        col1 = Column(od1, ssa, pmom)
-        col = col0 + col1
-        assert col.optical_depth == 3'''
+    def test_orbit_yields_known_block(self, orbit):
+        assert orbit.block == 'orbit03400'
 
 
 class TestDataFilename:
