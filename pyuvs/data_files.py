@@ -283,7 +283,7 @@ class DataFilename:
         return [c for c, f in enumerate(self._split_description())
                 if 'orbit' in f][0]
 
-'''
+
 def make_filename_pattern(segment: str, orbit: int, channel: str) -> str:
     """Make the glob pattern of a set of IUVS filenames.
 
@@ -302,7 +302,8 @@ def make_filename_pattern(segment: str, orbit: int, channel: str) -> str:
         The glob pattern of IUVS filenames.
 
     """
-    return f'*{segment}*{orbit}*{channel}*.fits.gz'
+    orbit = Orbit(orbit)
+    return f'*{segment}*{orbit.code}*{channel}*.fits.gz'
 
 
 def find_all_file_paths(data_directory: Path, segment: str, orbit: int,
@@ -344,7 +345,7 @@ def find_outdated_file_paths(files: list[Path]) -> list[Path]:
         All of the outdated data file paths.
 
     """
-    filenames = [str(f).replace('s0', 'a0') for f in files]
+    filenames = sorted([str(f).replace('s0', 'a0') for f in files])
     last_time_stamp = ''
     last_channel = ''
     last_file = None
@@ -409,7 +410,7 @@ def find_latest_file_paths_from_block(data_directory: Path, segment: str,
         The latest file paths matching the input patterns.
 
     """
-    block_path = data_directory / make_orbit_block_folder(orbit)
+    block_path = data_directory / Orbit(orbit).block
     return find_latest_file_paths(block_path, segment, orbit, channel)
 
 
@@ -433,7 +434,6 @@ def find_latest_apoapse_muv_file_paths_from_block(
     """
     return find_latest_file_paths_from_block(
         data_directory, 'apoapse', orbit, 'muv')
-'''
 
 
 if __name__ == '__main__':
