@@ -36,5 +36,4 @@ registered in other files.
 
 Suppose pyuvs is in the repos directory in your home folder. The command
 will look like:
-:code:`~/repos/pyuvs/venv-doc/bin/python -m sphinx.cmd.build -b html
-~/repos/pyuvs/builddocs ~/repos/pyuvs/docs -E`
+:code:`~/repos/PyUVS/venv/bin/python -m sphinx.cmd.build -b html ~/repos/PyUVS/documentation-source ~/repos/PyUVS/docs -E`

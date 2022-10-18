@@ -7,9 +7,13 @@ Fundamental utilities for working with MAVEN/IUVS data.
    :maxdepth: 1
    :caption: Useful links:
 
-pyuvs (coming soon)
-data (coming soon)
-about IUVS (coming soon)
+   rst/installation
+   rst/api-reference/pyuvs
+   rst/data-products/data-products
+   rst/images/images
+   rst/release-notes
+   rst/about-iuvs
+   rst/about-pyuvs
 
 
 If you used this package in your work, please consider citing it using the
