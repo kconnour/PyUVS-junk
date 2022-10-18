@@ -29,6 +29,7 @@ author = 'kconnour and zachariahmilby'
 # ones.
 extensions = [
     'sphinx.ext.autodoc',
+    'sphinx.ext.autosummary',
     'sphinx.ext.napoleon',
     'sphinx.ext.viewcode',
 ]
@@ -49,8 +50,9 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 #
 html_theme = 'pydata_sphinx_theme'
 html_theme_options = {
-    "github_url": "https://github.com/kconnour/PyUVS",
     "collapse_navigation": True,
+    "github_url": "https://github.com/kconnour/PyUVS",
+    "header_links_before_dropdown": 7
 }
 
 # Add any paths that contain custom static files (such as style sheets) here,
