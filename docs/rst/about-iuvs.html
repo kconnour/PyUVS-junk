@@ -346,7 +346,48 @@
               
   <section id="about-iuvs">
 <h1>About IUVS<a class="headerlink" href="#about-iuvs" title="Permalink to this heading">#</a></h1>
-<p>Coming as soon as I have the time and energy to work on this.</p>
+<p>IUVS is the Imaging Ultraviolet Spectrograph instrument aboard the MAVEN
+mission. For a detailed description of the instrument, check out the
+<a class="reference external" href="https://link.springer.com/article/10.1007/s11214-014-0098-7">IUVS instrument paper</a>.
+Some highlights and information on the binning is described below.</p>
+<section id="generic">
+<h2>Generic<a class="headerlink" href="#generic" title="Permalink to this heading">#</a></h2>
+<p>IUVS is a 1024x1024 pixel detector with a slit on top. Thus, one axis
+represents the spatial (along-slit) dimension and another represents the
+spectral dimension. We move the scan mirror each integration and by “stacking”
+these integrations, we can build up an 2D image (each integration is a 1D
+image). After scanning across the planet we reset the scan mirror and scan at
+other locations, and collectively these make up swaths.</p>
+</section>
+<section id="observing-modes">
+<h2>Observing Modes<a class="headerlink" href="#observing-modes" title="Permalink to this heading">#</a></h2>
+<p>IUVS observes using the following modes:</p>
+<ul class="simple">
+<li><p>Apoapse</p></li>
+<li><p>Periapse</p></li>
+<li><p>Inlimb</p></li>
+<li><p>Outlimb</p></li>
+<li><p>Incorona</p></li>
+<li><p>Outcorona</p></li>
+<li><p>Relay-echelle</p></li>
+<li><p>Star</p></li>
+<li><p>Sun-charge</p></li>
+</ul>
+<p>Additionally, there may be some one-off observations like observations of
+Phobos, interstellar objects, etc. Note that due to MAVEN’s precessing orbit,
+any given mode may be on the dayside or nightside and the sub-spacecraft
+latitude will slowly change.</p>
+<section id="apoapse">
+<h3>Apoapse<a class="headerlink" href="#apoapse" title="Permalink to this heading">#</a></h3>
+<p>Apoapse is the largest volume dataset on IUVS. The resolution frequently changes
+when we use dayside settings. At the start of the mission we used 10 spatial
+bins and around 30 spectral bins, but the dayside spectra are relatively
+featureless so we switched to higher spatial resolution and lower spectral
+resolution. 133 x 19 (spatial x spectral) is a common resolution, as is 50 x 19.
+Occasionally we use 15 or 20 spectral bins. In any case, beware that these
+may change frequently!</p>
+</section>
+</section>
 </section>
 
 
@@ -380,6 +421,35 @@
           
             <div class="bd-sidebar-secondary bd-toc">
               
+<div class="toc-item">
+  
+<div class="tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+</div>
+<nav id="bd-toc-nav" class="page-toc">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#generic">
+   Generic
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#observing-modes">
+   Observing Modes
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#apoapse">
+     Apoapse
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+</nav>
+</div>
+
 <div class="toc-item">
   
 <div id="searchbox"></div>
