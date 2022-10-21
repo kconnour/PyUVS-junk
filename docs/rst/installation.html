@@ -346,7 +346,61 @@
               
   <section id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">#</a></h1>
-<p>Coming as soon as I have the time and energy to work on this.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>We recommend using virtual environments when installing PyUVS.</p>
+</div>
+<p>To install PyUVS, first clone the repository using
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/kconnour/PyUVS.git</span></code> or your favorite git
+client. Then, install it using
+<code class="docutils literal notranslate"><span class="pre">&lt;path</span> <span class="pre">to</span> <span class="pre">python</span> <span class="pre">interpreter&gt;</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">&lt;path</span> <span class="pre">to</span> <span class="pre">PyUVS&gt;</span></code>. For example,
+when I’m in the PyUVS directory this looks like
+<code class="docutils literal notranslate"><span class="pre">/home/kyle/repos/PyUVS/venv/bin/python</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">.</span></code> for me.</p>
+<p>You can now import pyuvs with <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">pyuvs</span></code>. We recommend the syntax
+<code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">pyuvs</span> <span class="pre">as</span> <span class="pre">pu</span></code> so your hopes aren’t too high.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This will install the base pyuvs library and its dependencies. The PyUVS
+project comes with additional scripts for making data, creating images,
+and performing radiative transfer.</p>
+</div>
+<section id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this heading">#</a></h2>
+<p>Regardless of which product you want to make, you’ll need additional
+information. Specifically, this includes the flatfield, detector sensitivity
+curve, voltage correction, etc. I plan to have scripts that create these
+binarized arrays from the IUVS data (this way I’m not version controlling
+binarized files!) but for now, please add them manually.</p>
+</section>
+<section id="data">
+<h2>Data<a class="headerlink" href="#data" title="Permalink to this heading">#</a></h2>
+<p>I’ll add these when the time comes.</p>
+</section>
+<section id="images">
+<h2>Images<a class="headerlink" href="#images" title="Permalink to this heading">#</a></h2>
+<p>I’ll add these when the time comes.</p>
+</section>
+<section id="radiative-transfer">
+<h2>Radiative Transfer<a class="headerlink" href="#radiative-transfer" title="Permalink to this heading">#</a></h2>
+<p>I’ll add these when the time comes.</p>
+</section>
+</section>
+<section id="data-files">
+<h1>Data Files<a class="headerlink" href="#data-files" title="Permalink to this heading">#</a></h1>
+<p>I assume that the data is organized according to the IUVS standard:</p>
+<div class="line-block">
+<div class="line">IUVS-root</div>
+<div class="line">├── spice</div>
+<div class="line">└── iuvs-data</div>
+<div class="line-block">
+<div class="line">├── production</div>
+<div class="line">│   ├── orbitXXXXX</div>
+<div class="line">└── stage</div>
+<div class="line-block">
+<div class="line">├── orbitXXXXX</div>
+</div>
+</div>
+</div>
 </section>
 
 
@@ -380,6 +434,50 @@
           
             <div class="bd-sidebar-secondary bd-toc">
               
+<div class="toc-item">
+  
+<div class="tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+</div>
+<nav id="bd-toc-nav" class="page-toc">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Installation
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#setup">
+     Setup
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data">
+     Data
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#images">
+     Images
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#radiative-transfer">
+     Radiative Transfer
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-files">
+   Data Files
+  </a>
+ </li>
+</ul>
+
+</nav>
+</div>
+
 <div class="toc-item">
   
 <div id="searchbox"></div>

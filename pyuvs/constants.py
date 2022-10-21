@@ -6,6 +6,8 @@ Most of the values here come from the seminal `IUVS paper
 import numpy as np
 
 
+# TODO: Add MAVEN's datetime of orbital insertion
+
 spatial_slit_thickness: float = 0.1
 """Thickness of the slit [mm].
 
@@ -38,7 +40,7 @@ r"""Width of the slit [degrees].
 
 Notes
 -----
-This is the angular size of the entire slit and covers both of the keyholes!
+This is the angular size of the slit, which covers neither keyhole.
 The formula for creating this constant is
 
 .. math::
