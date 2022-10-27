@@ -32,6 +32,8 @@ extensions = [
     'sphinx.ext.autosummary',
     'sphinx.ext.napoleon',
     'sphinx.ext.viewcode',
+    'matplotlib.sphinxext.mathmpl',
+    'matplotlib.sphinxext.plot_directive',
 ]
 
 # Add any paths that contain graphics here, relative to this directory.
