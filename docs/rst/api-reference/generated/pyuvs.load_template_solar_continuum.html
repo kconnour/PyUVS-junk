@@ -28,6 +28,10 @@
 
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-rendered-html.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1e1de1a1873e13ef5536">
@@ -41,7 +45,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'rst/api-reference/generated/pyuvs.load_template_solar_continuum';</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Constants" href="../constants.html" />
+    <link rel="next" title="pyuvs.load_voltage_correction_voltage" href="pyuvs.load_voltage_correction_voltage.html" />
     <link rel="prev" title="pyuvs.load_template_oxygen_2972" href="pyuvs.load_template_oxygen_2972.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="docsearch:language" content="en">
@@ -113,7 +117,7 @@
         
                 <li class="nav-item">
                     <a class="nav-link" href="../../installation.html">
-                        Installation and setup
+                        Installation
                     </a>
                 </li>
                 
@@ -134,7 +138,14 @@
 
                 <li class="nav-item">
                     <a class="nav-link" href="../../images/images.html">
-                        Images
+                        Image products
+                    </a>
+                </li>
+                
+
+                <li class="nav-item">
+                    <a class="nav-link" href="../../examples/index.html">
+                        Graphics
                     </a>
                 </li>
                 
@@ -238,7 +249,7 @@
         
                 <li class="nav-item">
                     <a class="nav-link" href="../../installation.html">
-                        Installation and setup
+                        Installation
                     </a>
                 </li>
                 
@@ -259,7 +270,14 @@
 
                 <li class="nav-item">
                     <a class="nav-link" href="../../images/images.html">
-                        Images
+                        Image products
+                    </a>
+                </li>
+                
+
+                <li class="nav-item">
+                    <a class="nav-link" href="../../examples/index.html">
+                        Graphics
                     </a>
                 </li>
                 
@@ -345,6 +363,13 @@
 <li class="toctree-l2"><a class="reference internal" href="pyuvs.load_template_no_nightglow.html">pyuvs.load_template_no_nightglow</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pyuvs.load_template_oxygen_2972.html">pyuvs.load_template_oxygen_2972</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">pyuvs.load_template_solar_continuum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyuvs.load_voltage_correction_voltage.html">pyuvs.load_voltage_correction_voltage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyuvs.load_voltage_correction_coefficients.html">pyuvs.load_voltage_correction_coefficients</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyuvs.load_fuv_sensitivity_curve_manufacturer.html">pyuvs.load_fuv_sensitivity_curve_manufacturer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyuvs.load_muv_flatfield.html">pyuvs.load_muv_flatfield</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyuvs.load_muv_point_spread_function.html">pyuvs.load_muv_point_spread_function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyuvs.load_muv_sensitivity_curve_manufacturer.html">pyuvs.load_muv_sensitivity_curve_manufacturer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyuvs.load_muv_sensitivity_curve_observational.html">pyuvs.load_muv_sensitivity_curve_observational</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../constants.html">Constants</a></li>
@@ -392,7 +417,9 @@
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>The shape of this array is (1024,).</p>
+<p>The shape of this array is (1024,). This is a generic solar continuum and
+it is thus probably best for use in a quicklook. It may be better to use
+a targeted solar continuum for more rigorous data investigation.</p>
 <p class="rubric">Examples</p>
 <p>Visualize this array.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -433,10 +460,10 @@
           <p class="prev-next-title">pyuvs.load_template_oxygen_2972</p>
       </div>
   </a>
-  <a class='right-next' id="next-link" href="../constants.html" title="next page">
+  <a class='right-next' id="next-link" href="pyuvs.load_voltage_correction_voltage.html" title="next page">
   <div class="prev-next-info">
       <p class="prev-next-subtitle">next</p>
-      <p class="prev-next-title">Constants</p>
+      <p class="prev-next-title">pyuvs.load_voltage_correction_voltage</p>
   </div>
   <i class="fa-solid fa-angle-right"></i>
   </a>

@@ -26,6 +26,11 @@
     href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1e1de1a1873e13ef5536">
@@ -109,35 +114,42 @@
         
                 <li class="nav-item">
                     <a class="nav-link" href="../../rst/installation.html">
-                        Installation and Setup
+                        Installation
                     </a>
                 </li>
                 
 
                 <li class="nav-item">
                     <a class="nav-link" href="../../rst/api-reference/pyuvs.html">
-                        API Reference
+                        API reference
                     </a>
                 </li>
                 
 
                 <li class="nav-item">
                     <a class="nav-link" href="../../rst/data-products/data-products.html">
-                        Data Products
+                        Data products
                     </a>
                 </li>
                 
 
                 <li class="nav-item">
                     <a class="nav-link" href="../../rst/images/images.html">
-                        Images
+                        Image products
+                    </a>
+                </li>
+                
+
+                <li class="nav-item">
+                    <a class="nav-link" href="../../rst/examples/index.html">
+                        Graphics
                     </a>
                 </li>
                 
 
                 <li class="nav-item">
                     <a class="nav-link" href="../../rst/release-notes.html">
-                        Release Notes
+                        Release notes
                     </a>
                 </li>
                 
@@ -148,13 +160,21 @@
                     </a>
                 </li>
                 
-
+            <div class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    More
+                </button>
+                <div class="dropdown-menu">
+                    
                 <li class="nav-item">
                     <a class="nav-link" href="../../rst/about-pyuvs.html">
                         About PyUVS
                     </a>
                 </li>
                 
+                </div>
+            </div>
+            
     </ul>
 </nav>
       </div>
@@ -234,35 +254,42 @@
         
                 <li class="nav-item">
                     <a class="nav-link" href="../../rst/installation.html">
-                        Installation and Setup
+                        Installation
                     </a>
                 </li>
                 
 
                 <li class="nav-item">
                     <a class="nav-link" href="../../rst/api-reference/pyuvs.html">
-                        API Reference
+                        API reference
                     </a>
                 </li>
                 
 
                 <li class="nav-item">
                     <a class="nav-link" href="../../rst/data-products/data-products.html">
-                        Data Products
+                        Data products
                     </a>
                 </li>
                 
 
                 <li class="nav-item">
                     <a class="nav-link" href="../../rst/images/images.html">
-                        Images
+                        Image products
+                    </a>
+                </li>
+                
+
+                <li class="nav-item">
+                    <a class="nav-link" href="../../rst/examples/index.html">
+                        Graphics
                     </a>
                 </li>
                 
 
                 <li class="nav-item">
                     <a class="nav-link" href="../../rst/release-notes.html">
-                        Release Notes
+                        Release notes
                     </a>
                 </li>
                 
@@ -273,13 +300,21 @@
                     </a>
                 </li>
                 
-
+            <div class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    More
+                </button>
+                <div class="dropdown-menu">
+                    
                 <li class="nav-item">
                     <a class="nav-link" href="../../rst/about-pyuvs.html">
                         About PyUVS
                     </a>
                 </li>
                 
+                </div>
+            </div>
+            
     </ul>
 </nav>
       </div>
@@ -348,6 +383,9 @@
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 
+<span class="n">_error_message</span> <span class="o">=</span> <span class="s1">&#39;The given file was not downloaded before pyuvs instllation.&#39;</span>
+
+
 <span class="k">def</span> <span class="nf">_get_package_path</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Path</span><span class="p">:</span>
     <span class="k">return</span> <span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
 
@@ -362,6 +400,10 @@
 
 <span class="k">def</span> <span class="nf">_get_templates_directory</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Path</span><span class="p">:</span>
     <span class="k">return</span> <span class="n">_get_anc_directory</span><span class="p">()</span> <span class="o">/</span> <span class="s1">&#39;templates&#39;</span>
+
+
+<span class="k">def</span> <span class="nf">_get_instrument_directory</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Path</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">_get_anc_directory</span><span class="p">()</span> <span class="o">/</span> <span class="s1">&#39;instrument&#39;</span>
 
 
 <div class="viewcode-block" id="load_map_magnetic_field_closed_probability"><a class="viewcode-back" href="../../rst/api-reference/generated/pyuvs.load_map_magnetic_field_closed_probability.html#pyuvs.load_map_magnetic_field_closed_probability">[docs]</a><span class="k">def</span> <span class="nf">load_map_magnetic_field_closed_probability</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
@@ -404,10 +446,13 @@
 <span class="sd">       plt.show()</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">_get_maps_directory</span><span class="p">()</span> <span class="o">/</span> <span class="s1">&#39;magnetic_field_closed_probability.npy&#39;</span><span class="p">)</span></div>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">_get_maps_directory</span><span class="p">()</span> <span class="o">/</span> <span class="s1">&#39;magnetic_field_closed_probability.npy&#39;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">FileNotFoundError</span> <span class="k">as</span> <span class="n">fe</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="n">_error_message</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">fe</span></div>
 
 
-<span class="k">def</span> <span class="nf">load_map_magnetic_field_open_probability</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<div class="viewcode-block" id="load_map_magnetic_field_open_probability"><a class="viewcode-back" href="../../rst/api-reference/generated/pyuvs.load_map_magnetic_field_open_probability.html#pyuvs.load_map_magnetic_field_open_probability">[docs]</a><span class="k">def</span> <span class="nf">load_map_magnetic_field_open_probability</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Load the map denoting the probability of an open magnetic field line.</span>
 
 <span class="sd">    Returns</span>
@@ -447,10 +492,13 @@
 <span class="sd">       plt.show()</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">_get_maps_directory</span><span class="p">()</span> <span class="o">/</span> <span class="s1">&#39;magnetic_field_open_probability.npy&#39;</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">_get_maps_directory</span><span class="p">()</span> <span class="o">/</span> <span class="s1">&#39;magnetic_field_open_probability.npy&#39;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">FileNotFoundError</span> <span class="k">as</span> <span class="n">fe</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="n">_error_message</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">fe</span></div>
 
 
-<span class="k">def</span> <span class="nf">load_map_mars_surface</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<div class="viewcode-block" id="load_map_mars_surface"><a class="viewcode-back" href="../../rst/api-reference/generated/pyuvs.load_map_mars_surface.html#pyuvs.load_map_mars_surface">[docs]</a><span class="k">def</span> <span class="nf">load_map_mars_surface</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Load the Mars surface map.</span>
 
 <span class="sd">    Returns</span>
@@ -489,10 +537,13 @@
 <span class="sd">       plt.show()</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">_get_maps_directory</span><span class="p">()</span> <span class="o">/</span> <span class="s1">&#39;mars_surface.npy&#39;</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">_get_maps_directory</span><span class="p">()</span> <span class="o">/</span> <span class="s1">&#39;mars_surface.npy&#39;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">FileNotFoundError</span> <span class="k">as</span> <span class="n">fe</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="n">_error_message</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">fe</span></div>
 
 
-<span class="k">def</span> <span class="nf">load_template_wavelengths</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<div class="viewcode-block" id="load_template_wavelengths"><a class="viewcode-back" href="../../rst/api-reference/generated/pyuvs.load_template_wavelengths.html#pyuvs.load_template_wavelengths">[docs]</a><span class="k">def</span> <span class="nf">load_template_wavelengths</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Load the wavelength centers that correspond to the MUV templates.</span>
 
 <span class="sd">    Returns</span>
@@ -505,10 +556,10 @@
 <span class="sd">    The shape of this array is (1024,).</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">174.00487653</span><span class="p">,</span> <span class="mf">341.44029638</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">1024</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">174.00487653</span><span class="p">,</span> <span class="mf">341.44029638</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">1024</span><span class="p">)</span></div>
 
 
-<span class="k">def</span> <span class="nf">load_template_co_cameron</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<div class="viewcode-block" id="load_template_co_cameron"><a class="viewcode-back" href="../../rst/api-reference/generated/pyuvs.load_template_co_cameron.html#pyuvs.load_template_co_cameron">[docs]</a><span class="k">def</span> <span class="nf">load_template_co_cameron</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Load the normalized MUV CO Cameron bands template.</span>
 
 <span class="sd">    This template is in uncalibrated DNs.</span>
@@ -544,10 +595,13 @@
 <span class="sd">       plt.show()</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">_get_templates_directory</span><span class="p">()</span> <span class="o">/</span> <span class="s1">&#39;co_cameron_bands.npy&#39;</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">_get_templates_directory</span><span class="p">()</span> <span class="o">/</span> <span class="s1">&#39;co_cameron_bands.npy&#39;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">FileNotFoundError</span> <span class="k">as</span> <span class="n">fe</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="n">_error_message</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">fe</span></div>
 
 
-<span class="k">def</span> <span class="nf">load_template_co_plus_1st_negative</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<div class="viewcode-block" id="load_template_co_plus_1st_negative"><a class="viewcode-back" href="../../rst/api-reference/generated/pyuvs.load_template_co_plus_1st_negative.html#pyuvs.load_template_co_plus_1st_negative">[docs]</a><span class="k">def</span> <span class="nf">load_template_co_plus_1st_negative</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Load the normalized MUV CO :sup:`+` 1NG (first negative) bands template.</span>
 
 <span class="sd">    This template is in uncalibrated DNs.</span>
@@ -583,10 +637,13 @@
 <span class="sd">       plt.show()</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">_get_templates_directory</span><span class="p">()</span> <span class="o">/</span> <span class="s1">&#39;co+_first_negative.npy&#39;</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">_get_templates_directory</span><span class="p">()</span> <span class="o">/</span> <span class="s1">&#39;co+_first_negative.npy&#39;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">FileNotFoundError</span> <span class="k">as</span> <span class="n">fe</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="n">_error_message</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">fe</span></div>
 
 
-<span class="k">def</span> <span class="nf">load_template_co2_plus_fdb</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<div class="viewcode-block" id="load_template_co2_plus_fdb"><a class="viewcode-back" href="../../rst/api-reference/generated/pyuvs.load_template_co2_plus_fdb.html#pyuvs.load_template_co2_plus_fdb">[docs]</a><span class="k">def</span> <span class="nf">load_template_co2_plus_fdb</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Load the MUV CO :sub:`2` :sup:`+` FDB (Fox-Duffendack-Barker) bands template.</span>
 
 <span class="sd">    This template is in uncalibrated DNs.</span>
@@ -622,10 +679,13 @@
 <span class="sd">       plt.show()</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">_get_templates_directory</span><span class="p">()</span> <span class="o">/</span> <span class="s1">&#39;co2+_fox_duffendack_barker.npy&#39;</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">_get_templates_directory</span><span class="p">()</span> <span class="o">/</span> <span class="s1">&#39;co2+_fox_duffendack_barker.npy&#39;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">FileNotFoundError</span> <span class="k">as</span> <span class="n">fe</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="n">_error_message</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">fe</span></div>
 
 
-<span class="k">def</span> <span class="nf">load_template_co2_plus_uvd</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<div class="viewcode-block" id="load_template_co2_plus_uvd"><a class="viewcode-back" href="../../rst/api-reference/generated/pyuvs.load_template_co2_plus_uvd.html#pyuvs.load_template_co2_plus_uvd">[docs]</a><span class="k">def</span> <span class="nf">load_template_co2_plus_uvd</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Load the MUV CO :sub:`2` :sup:`+` UVD (ultraviolet doublet) template.</span>
 
 <span class="sd">    This template is in uncalibrated DNs.</span>
@@ -661,10 +721,13 @@
 <span class="sd">       plt.show()</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">_get_templates_directory</span><span class="p">()</span> <span class="o">/</span> <span class="s1">&#39;co2+_ultraviolet_doublet.npy&#39;</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">_get_templates_directory</span><span class="p">()</span> <span class="o">/</span> <span class="s1">&#39;co2+_ultraviolet_doublet.npy&#39;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">FileNotFoundError</span> <span class="k">as</span> <span class="n">fe</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="n">_error_message</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">fe</span></div>
 
 
-<span class="k">def</span> <span class="nf">load_template_n2_vk</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<div class="viewcode-block" id="load_template_n2_vk"><a class="viewcode-back" href="../../rst/api-reference/generated/pyuvs.load_template_n2_vk.html#pyuvs.load_template_n2_vk">[docs]</a><span class="k">def</span> <span class="nf">load_template_n2_vk</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Load the MUV N :sub:`2` VK (Vegard-Kaplan) bands template.</span>
 
 <span class="sd">    Returns</span>
@@ -698,10 +761,13 @@
 <span class="sd">       plt.show()</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">_get_templates_directory</span><span class="p">()</span> <span class="o">/</span> <span class="s1">&#39;nitrogen_vegard_kaplan.npy&#39;</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">_get_templates_directory</span><span class="p">()</span> <span class="o">/</span> <span class="s1">&#39;nitrogen_vegard_kaplan.npy&#39;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">FileNotFoundError</span> <span class="k">as</span> <span class="n">fe</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="n">_error_message</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">fe</span></div>
 
 
-<span class="k">def</span> <span class="nf">load_template_no_nightglow</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<div class="viewcode-block" id="load_template_no_nightglow"><a class="viewcode-back" href="../../rst/api-reference/generated/pyuvs.load_template_no_nightglow.html#pyuvs.load_template_no_nightglow">[docs]</a><span class="k">def</span> <span class="nf">load_template_no_nightglow</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Load the MUV NO nightglow bands template.</span>
 
 <span class="sd">    This template is in uncalibrated DNs.</span>
@@ -737,10 +803,13 @@
 <span class="sd">       plt.show()</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">_get_templates_directory</span><span class="p">()</span> <span class="o">/</span> <span class="s1">&#39;no_nightglow.npy&#39;</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">_get_templates_directory</span><span class="p">()</span> <span class="o">/</span> <span class="s1">&#39;no_nightglow.npy&#39;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">FileNotFoundError</span> <span class="k">as</span> <span class="n">fe</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="n">_error_message</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">fe</span></div>
 
 
-<span class="k">def</span> <span class="nf">load_template_oxygen_2972</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<div class="viewcode-block" id="load_template_oxygen_2972"><a class="viewcode-back" href="../../rst/api-reference/generated/pyuvs.load_template_oxygen_2972.html#pyuvs.load_template_oxygen_2972">[docs]</a><span class="k">def</span> <span class="nf">load_template_oxygen_2972</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Load the MUV oxygen 297.2 nm template.</span>
 
 <span class="sd">    This template is in uncalibrated DNs.</span>
@@ -776,10 +845,13 @@
 <span class="sd">       plt.show()</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">_get_templates_directory</span><span class="p">()</span> <span class="o">/</span> <span class="s1">&#39;oxygen_2972.npy&#39;</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">_get_templates_directory</span><span class="p">()</span> <span class="o">/</span> <span class="s1">&#39;oxygen_2972.npy&#39;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">FileNotFoundError</span> <span class="k">as</span> <span class="n">fe</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="n">_error_message</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">fe</span></div>
 
 
-<span class="k">def</span> <span class="nf">load_template_solar_continuum</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<div class="viewcode-block" id="load_template_solar_continuum"><a class="viewcode-back" href="../../rst/api-reference/generated/pyuvs.load_template_solar_continuum.html#pyuvs.load_template_solar_continuum">[docs]</a><span class="k">def</span> <span class="nf">load_template_solar_continuum</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Load the MUV solar continuum template.</span>
 
 <span class="sd">    This template is in uncalibrated DNs.</span>
@@ -791,7 +863,9 @@
 
 <span class="sd">    Notes</span>
 <span class="sd">    -----</span>
-<span class="sd">    The shape of this array is (1024,).</span>
+<span class="sd">    The shape of this array is (1024,). This is a generic solar continuum and</span>
+<span class="sd">    it is thus probably best for use in a quicklook. It may be better to use</span>
+<span class="sd">    a targeted solar continuum for more rigorous data investigation.</span>
 
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
@@ -815,7 +889,271 @@
 <span class="sd">       plt.show()</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">_get_templates_directory</span><span class="p">()</span> <span class="o">/</span> <span class="s1">&#39;solar_continuum.npy&#39;</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">_get_templates_directory</span><span class="p">()</span> <span class="o">/</span> <span class="s1">&#39;solar_continuum.npy&#39;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">FileNotFoundError</span> <span class="k">as</span> <span class="n">fe</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="n">_error_message</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">fe</span></div>
+
+
+<div class="viewcode-block" id="load_voltage_correction_voltage"><a class="viewcode-back" href="../../rst/api-reference/generated/pyuvs.load_voltage_correction_voltage.html#pyuvs.load_voltage_correction_voltage">[docs]</a><span class="k">def</span> <span class="nf">load_voltage_correction_voltage</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Load the voltages used in the voltage correction.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    np.ndarray</span>
+<span class="sd">        Array of the voltages.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">_get_instrument_directory</span><span class="p">()</span> <span class="o">/</span> <span class="s1">&#39;voltage.npy&#39;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">FileNotFoundError</span> <span class="k">as</span> <span class="n">fe</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="n">_error_message</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">fe</span></div>
+
+
+<div class="viewcode-block" id="load_voltage_correction_coefficients"><a class="viewcode-back" href="../../rst/api-reference/generated/pyuvs.load_voltage_correction_coefficients.html#pyuvs.load_voltage_correction_coefficients">[docs]</a><span class="k">def</span> <span class="nf">load_voltage_correction_coefficients</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Load the voltages fit coefficients used in the voltage correction.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    np.ndarray</span>
+<span class="sd">        Array of the voltage fit coefficients.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">_get_instrument_directory</span><span class="p">()</span> <span class="o">/</span> <span class="s1">&#39;voltage_fit_coefficients.npy&#39;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">FileNotFoundError</span> <span class="k">as</span> <span class="n">fe</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="n">_error_message</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">fe</span></div>
+
+
+<div class="viewcode-block" id="load_fuv_sensitivity_curve_manufacturer"><a class="viewcode-back" href="../../rst/api-reference/generated/pyuvs.load_fuv_sensitivity_curve_manufacturer.html#pyuvs.load_fuv_sensitivity_curve_manufacturer">[docs]</a><span class="k">def</span> <span class="nf">load_fuv_sensitivity_curve_manufacturer</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Load the manufacturer&#39;s FUV detector factory sensitivity curve.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    np.ndarray</span>
+<span class="sd">        Array of the FUV sensitivity curve.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    This array has a shape of (2, 101). Index 0 of the first axis is the</span>
+<span class="sd">    wavelength corresponding to the sensitivity curve; index 1 is the</span>
+<span class="sd">    sensitivity curve.</span>
+
+<span class="sd">    This is the detector sensitivity in DN / (photons / cm :sup:`2`) at</span>
+<span class="sd">    gain = 1. The manufacturer reported this curve June 9, 2014.</span>
+
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    load_muv_sensitivity_curve_manufacturer: The MUV analogue to this curve.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    Plot the sensitivity curve.</span>
+
+<span class="sd">    .. plot::</span>
+<span class="sd">       :include-source:</span>
+
+<span class="sd">       import matplotlib.pyplot as plt</span>
+<span class="sd">       import pyuvs as pu</span>
+
+<span class="sd">       fig, ax = plt.subplots()</span>
+
+<span class="sd">       curve = pu.load_fuv_sensitivity_curve_manufacturer()</span>
+<span class="sd">       ax.plot(curve[0], curve[1])</span>
+<span class="sd">       ax.set_xlabel(&#39;Wavelength [nm]&#39;)</span>
+<span class="sd">       ax.set_ylabel(&#39;Detector Sensitivity&#39;)</span>
+<span class="sd">       ax.set_xlim(100, 200)</span>
+<span class="sd">       ax.set_ylim(0, 0.1)</span>
+
+<span class="sd">       plt.show()</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">_get_instrument_directory</span><span class="p">()</span> <span class="o">/</span> <span class="s1">&#39;fuv_sensitivity_curve_manufacturer.npy&#39;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">FileNotFoundError</span> <span class="k">as</span> <span class="n">fe</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="n">_error_message</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">fe</span></div>
+
+
+<div class="viewcode-block" id="load_muv_flatfield"><a class="viewcode-back" href="../../rst/api-reference/generated/pyuvs.load_muv_flatfield.html#pyuvs.load_muv_flatfield">[docs]</a><span class="k">def</span> <span class="nf">load_muv_flatfield</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Load the mid-hi-resolution flatfield created from data taken during the</span>
+<span class="sd">    Mars year 34 global dust storm.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    np.ndarray</span>
+<span class="sd">        Array of the flatfield.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    This array has a shape of (133, 19). This flatfield was made from orbits</span>
+<span class="sd">    7509 to 7523.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    Visualize this flatfield.</span>
+
+<span class="sd">    .. plot::</span>
+<span class="sd">       :include-source:</span>
+
+<span class="sd">       import matplotlib.pyplot as plt</span>
+<span class="sd">       import pyuvs as pu</span>
+
+<span class="sd">       fig, ax = plt.subplots(1, 1, figsize=(8, 2), constrained_layout=True)</span>
+
+<span class="sd">       flatfield = pu.load_muv_flatfield()</span>
+<span class="sd">       ax.pcolormesh(flatfield.T, vmin=0.9, vmax=1.1)</span>
+<span class="sd">       ax.set_xlabel(&#39;Spatial bin&#39;)</span>
+<span class="sd">       ax.set_ylabel(&#39;Spectral bin&#39;)</span>
+
+<span class="sd">       plt.show()</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">_get_instrument_directory</span><span class="p">()</span> <span class="o">/</span> <span class="s1">&#39;muv_flatfield_133x19.npy&#39;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">FileNotFoundError</span> <span class="k">as</span> <span class="n">fe</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="n">_error_message</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">fe</span></div>
+
+
+<div class="viewcode-block" id="load_muv_point_spread_function"><a class="viewcode-back" href="../../rst/api-reference/generated/pyuvs.load_muv_point_spread_function.html#pyuvs.load_muv_point_spread_function">[docs]</a><span class="k">def</span> <span class="nf">load_muv_point_spread_function</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Load the MUV point spread function.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    np.ndarray</span>
+<span class="sd">        Array of the point spread function.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    This array has a shape of (181,). The shape of this array is best</span>
+<span class="sd">    characterized by a Voigt profile.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    Visualize this array.</span>
+
+<span class="sd">    .. plot::</span>
+<span class="sd">       :include-source:</span>
+
+<span class="sd">       import matplotlib.pyplot as plt</span>
+<span class="sd">       import numpy as np</span>
+<span class="sd">       import pyuvs as pu</span>
+
+<span class="sd">       fig, ax = plt.subplots()</span>
+
+<span class="sd">       psf = pu.load_muv_point_spread_function()</span>
+<span class="sd">       detector_pixels = np.arange(181)</span>
+<span class="sd">       ax.plot(detector_pixels, psf)</span>
+<span class="sd">       ax.set_xlabel(&#39;Detector pixels&#39;)</span>
+<span class="sd">       ax.set_ylabel(&#39;Point spread function&#39;)</span>
+
+<span class="sd">       plt.show()</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">_get_instrument_directory</span><span class="p">()</span> <span class="o">/</span> <span class="s1">&#39;muv_point_spread_function.npy&#39;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">FileNotFoundError</span> <span class="k">as</span> <span class="n">fe</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="n">_error_message</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">fe</span></div>
+
+
+<div class="viewcode-block" id="load_muv_sensitivity_curve_manufacturer"><a class="viewcode-back" href="../../rst/api-reference/generated/pyuvs.load_muv_sensitivity_curve_manufacturer.html#pyuvs.load_muv_sensitivity_curve_manufacturer">[docs]</a><span class="k">def</span> <span class="nf">load_muv_sensitivity_curve_manufacturer</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Load the manufacturer&#39;s MUV detector factory sensitivity curve.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    np.ndarray</span>
+<span class="sd">        Array of the MUV sensitivity curve.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    This array has a shape of (2, 101). Index 0 of the first axis is the</span>
+<span class="sd">    wavelength corresponding to the sensitivity curve; index 1 is the</span>
+<span class="sd">    sensitivity curve.</span>
+
+<span class="sd">    This is the detector sensitivity in DN / (photons / cm :sup:`2`) at</span>
+<span class="sd">    gain = 1. The manufacturer reported this curve June 9, 2014.</span>
+
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    load_fuv_sensitivity_curve_manufacturer: The FUV analogue to this curve.</span>
+<span class="sd">    load_muv_sensitivity_curve_observational: This curve created from</span>
+<span class="sd">                                              observational data.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    Plot the sensitivity curve.</span>
+
+<span class="sd">    .. plot::</span>
+<span class="sd">       :include-source:</span>
+
+<span class="sd">       import matplotlib.pyplot as plt</span>
+<span class="sd">       import pyuvs as pu</span>
+
+<span class="sd">       fig, ax = plt.subplots()</span>
+
+<span class="sd">       curve = pu.load_muv_sensitivity_curve_manufacturer()</span>
+<span class="sd">       ax.plot(curve[0], curve[1])</span>
+<span class="sd">       ax.set_xlabel(&#39;Wavelength [nm]&#39;)</span>
+<span class="sd">       ax.set_ylabel(&#39;Detector Sensitivity&#39;)</span>
+<span class="sd">       ax.set_xlim(170, 360)</span>
+<span class="sd">       ax.set_ylim(0, 0.06)</span>
+
+<span class="sd">       plt.show()</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">_get_instrument_directory</span><span class="p">()</span> <span class="o">/</span> <span class="s1">&#39;muv_sensitivity_curve_manufacturer.npy&#39;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">FileNotFoundError</span> <span class="k">as</span> <span class="n">fe</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="n">_error_message</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">fe</span></div>
+
+
+<div class="viewcode-block" id="load_muv_sensitivity_curve_observational"><a class="viewcode-back" href="../../rst/api-reference/generated/pyuvs.load_muv_sensitivity_curve_observational.html#pyuvs.load_muv_sensitivity_curve_observational">[docs]</a><span class="k">def</span> <span class="nf">load_muv_sensitivity_curve_observational</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Load the MUV detector sensitivity curve derived from observations.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    np.ndarray</span>
+<span class="sd">        Array of the MUV sensitivity curve.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    This array has a shape of (2, 512). Index 0 of the first axis is the</span>
+<span class="sd">    wavelength corresponding to the sensitivity curve; index 1 is the</span>
+<span class="sd">    sensitivity curve.</span>
+
+<span class="sd">    This is the detector sensitivity in DN / (photons / cm :sup:`2`) at</span>
+<span class="sd">    gain = 1. Justin Deighan reported this curve October 19, 2018.</span>
+
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    load_muv_sensitivity_curve_manufacturer: This curve reported by the</span>
+<span class="sd">                                             manufacturer.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    Plot the sensitivity curve.</span>
+
+<span class="sd">    .. plot::</span>
+<span class="sd">       :include-source:</span>
+
+<span class="sd">       import matplotlib.pyplot as plt</span>
+<span class="sd">       import pyuvs as pu</span>
+
+<span class="sd">       fig, ax = plt.subplots()</span>
+
+<span class="sd">       curve = pu.load_muv_sensitivity_curve_observational()</span>
+<span class="sd">       ax.plot(curve[0], curve[1])</span>
+<span class="sd">       ax.set_xlabel(&#39;Wavelength [nm]&#39;)</span>
+<span class="sd">       ax.set_ylabel(&#39;Detector Sensitivity&#39;)</span>
+<span class="sd">       ax.set_xlim(170, 360)</span>
+<span class="sd">       ax.set_ylim(0, 0.06)</span>
+
+<span class="sd">       plt.show()</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">_get_instrument_directory</span><span class="p">()</span> <span class="o">/</span> <span class="s1">&#39;muv_sensitivity_curve_observational.npy&#39;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">FileNotFoundError</span> <span class="k">as</span> <span class="n">fe</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="n">_error_message</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">fe</span></div>
 </pre></div>
 
             </article>

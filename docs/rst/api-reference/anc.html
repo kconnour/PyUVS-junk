@@ -28,6 +28,10 @@
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1e1de1a1873e13ef5536">
@@ -113,7 +117,7 @@
         
                 <li class="nav-item">
                     <a class="nav-link" href="../installation.html">
-                        Installation and setup
+                        Installation
                     </a>
                 </li>
                 
@@ -134,7 +138,14 @@
 
                 <li class="nav-item">
                     <a class="nav-link" href="../images/images.html">
-                        Images
+                        Image products
+                    </a>
+                </li>
+                
+
+                <li class="nav-item">
+                    <a class="nav-link" href="../examples/index.html">
+                        Graphics
                     </a>
                 </li>
                 
@@ -238,7 +249,7 @@
         
                 <li class="nav-item">
                     <a class="nav-link" href="../installation.html">
-                        Installation and setup
+                        Installation
                     </a>
                 </li>
                 
@@ -259,7 +270,14 @@
 
                 <li class="nav-item">
                     <a class="nav-link" href="../images/images.html">
-                        Images
+                        Image products
+                    </a>
+                </li>
+                
+
+                <li class="nav-item">
+                    <a class="nav-link" href="../examples/index.html">
+                        Graphics
                     </a>
                 </li>
                 
@@ -345,6 +363,13 @@
 <li class="toctree-l2"><a class="reference internal" href="generated/pyuvs.load_template_no_nightglow.html">pyuvs.load_template_no_nightglow</a></li>
 <li class="toctree-l2"><a class="reference internal" href="generated/pyuvs.load_template_oxygen_2972.html">pyuvs.load_template_oxygen_2972</a></li>
 <li class="toctree-l2"><a class="reference internal" href="generated/pyuvs.load_template_solar_continuum.html">pyuvs.load_template_solar_continuum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/pyuvs.load_voltage_correction_voltage.html">pyuvs.load_voltage_correction_voltage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/pyuvs.load_voltage_correction_coefficients.html">pyuvs.load_voltage_correction_coefficients</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/pyuvs.load_fuv_sensitivity_curve_manufacturer.html">pyuvs.load_fuv_sensitivity_curve_manufacturer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/pyuvs.load_muv_flatfield.html">pyuvs.load_muv_flatfield</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/pyuvs.load_muv_point_spread_function.html">pyuvs.load_muv_point_spread_function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/pyuvs.load_muv_sensitivity_curve_manufacturer.html">pyuvs.load_muv_sensitivity_curve_manufacturer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/pyuvs.load_muv_sensitivity_curve_observational.html">pyuvs.load_muv_sensitivity_curve_observational</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="constants.html">Constants</a></li>
@@ -430,6 +455,51 @@ you can easily access the ancillary files with these functions.</p>
 </tbody>
 </table>
 </section>
+<section id="instrument">
+<h2>Instrument<a class="headerlink" href="#instrument" title="Permalink to this heading">#</a></h2>
+<section id="generic">
+<h3>Generic<a class="headerlink" href="#generic" title="Permalink to this heading">#</a></h3>
+<table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/pyuvs.load_voltage_correction_voltage.html#pyuvs.load_voltage_correction_voltage" title="pyuvs.load_voltage_correction_voltage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyuvs.load_voltage_correction_voltage</span></code></a>()</p></td>
+<td><p>Load the voltages used in the voltage correction.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/pyuvs.load_voltage_correction_coefficients.html#pyuvs.load_voltage_correction_coefficients" title="pyuvs.load_voltage_correction_coefficients"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyuvs.load_voltage_correction_coefficients</span></code></a>()</p></td>
+<td><p>Load the voltages fit coefficients used in the voltage correction.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="far-ultraviolet">
+<h3>Far-ultraviolet<a class="headerlink" href="#far-ultraviolet" title="Permalink to this heading">#</a></h3>
+<table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/pyuvs.load_fuv_sensitivity_curve_manufacturer.html#pyuvs.load_fuv_sensitivity_curve_manufacturer" title="pyuvs.load_fuv_sensitivity_curve_manufacturer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyuvs.load_fuv_sensitivity_curve_manufacturer</span></code></a>()</p></td>
+<td><p>Load the manufacturer's FUV detector factory sensitivity curve.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="mid-ultraviolet">
+<h3>Mid-ultraviolet<a class="headerlink" href="#mid-ultraviolet" title="Permalink to this heading">#</a></h3>
+<table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/pyuvs.load_muv_flatfield.html#pyuvs.load_muv_flatfield" title="pyuvs.load_muv_flatfield"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyuvs.load_muv_flatfield</span></code></a>()</p></td>
+<td><p>Load the mid-hi-resolution flatfield created from data taken during the Mars year 34 global dust storm.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/pyuvs.load_muv_point_spread_function.html#pyuvs.load_muv_point_spread_function" title="pyuvs.load_muv_point_spread_function"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyuvs.load_muv_point_spread_function</span></code></a>()</p></td>
+<td><p>Load the MUV point spread function.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/pyuvs.load_muv_sensitivity_curve_manufacturer.html#pyuvs.load_muv_sensitivity_curve_manufacturer" title="pyuvs.load_muv_sensitivity_curve_manufacturer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyuvs.load_muv_sensitivity_curve_manufacturer</span></code></a>()</p></td>
+<td><p>Load the manufacturer's MUV detector factory sensitivity curve.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/pyuvs.load_muv_sensitivity_curve_observational.html#pyuvs.load_muv_sensitivity_curve_observational" title="pyuvs.load_muv_sensitivity_curve_observational"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyuvs.load_muv_sensitivity_curve_observational</span></code></a>()</p></td>
+<td><p>Load the MUV detector sensitivity curve derived from observations.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
 </section>
 
 
@@ -479,6 +549,28 @@ you can easily access the ancillary files with these functions.</p>
   <a class="reference internal nav-link" href="#templates">
    Templates
   </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#instrument">
+   Instrument
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#generic">
+     Generic
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#far-ultraviolet">
+     Far-ultraviolet
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mid-ultraviolet">
+     Mid-ultraviolet
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 

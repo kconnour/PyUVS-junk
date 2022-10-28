@@ -26,3 +26,30 @@ Templates
    pyuvs.load_template_no_nightglow
    pyuvs.load_template_oxygen_2972
    pyuvs.load_template_solar_continuum
+
+Instrument
+----------
+Generic
+~~~~~~~
+.. autosummary::
+   :toctree: generated/
+
+   pyuvs.load_voltage_correction_voltage
+   pyuvs.load_voltage_correction_coefficients
+
+Far-ultraviolet
+~~~~~~~~~~~~~~~
+.. autosummary::
+   :toctree: generated/
+
+   pyuvs.load_fuv_sensitivity_curve_manufacturer
+
+Mid-ultraviolet
+~~~~~~~~~~~~~~~
+.. autosummary::
+   :toctree: generated/
+
+   pyuvs.load_muv_flatfield
+   pyuvs.load_muv_point_spread_function
+   pyuvs.load_muv_sensitivity_curve_manufacturer
+   pyuvs.load_muv_sensitivity_curve_observational

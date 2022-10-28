@@ -1,5 +1,5 @@
-Installation and setup
-======================
+Installation
+============
 
 .. tip::
    We recommend using virtual environments when installing PyUVS.
@@ -41,7 +41,7 @@ that the data files are organized according to the IUVS standard:
 |     └── stage
 |         ├── orbitXXXXX
 
-``<IUVS-root>`` can have whatever name, but the other folders must have the
+``<IUVS-root>`` can have whatever name, but the other folders have the
 above naming convention. At some point, I will include a list of all the data
 filenames on OneDrive.
 
