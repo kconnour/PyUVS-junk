@@ -32,6 +32,9 @@ extensions = [
     'sphinx.ext.autosummary',
     'sphinx.ext.napoleon',
     'sphinx.ext.viewcode',
+    'matplotlib.sphinxext.mathmpl',
+    'matplotlib.sphinxext.plot_directive',
+    'sphinx_gallery.gen_gallery'
 ]
 
 # Add any paths that contain graphics here, relative to this directory.
@@ -52,7 +55,7 @@ html_theme = 'pydata_sphinx_theme'
 html_theme_options = {
     "collapse_navigation": True,
     "github_url": "https://github.com/kconnour/PyUVS",
-    "header_links_before_dropdown": 7
+    "header_links_before_dropdown": 8
 }
 
 # Add any paths that contain custom static files (such as style sheets) here,
@@ -75,5 +78,5 @@ autodoc_type_aliases = {
 # Sphinx gallery stuff
 sphinx_gallery_conf = {
     'examples_dirs': '../examples',
-    'gallery_dirs': '../builddocs/rst/examples'
+    'gallery_dirs': '../documentation-source/rst/examples'
 }

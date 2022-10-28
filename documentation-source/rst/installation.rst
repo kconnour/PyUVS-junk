@@ -6,10 +6,19 @@ Installation
 
 To install PyUVS, first clone the repository using
 ``git clone https://github.com/kconnour/PyUVS.git`` or your favorite git
-client. Then, install it using
+client. Regardless of which product you want to make, you'll need additional
+information. These include files like spectral templates, maps of Mars,
+instrumental correction arrays, and GCM runs. It's a terrible idea to
+version control these files so I put them online. Download them at my
+`CU OneDrive link
+<https://o365coloradoedu-my.sharepoint.com/:f:/g/personal/kyco2464_colorado_edu/Es_QzcEZfo1Jh-Y675axO9MBZ68F0GhsIc1OQNvBNAnNNQ?e=FuKFRC>`_.
+Place these in a folder named ``anc`` within the ``pyuvs`` folder, keeping the
+same directory structure as the folder you downloaded.
+
+Then, install ``pyuvs`` using
 ``<path to python interpreter> -m pip install <path to PyUVS>``. For example,
 when I'm in the PyUVS directory this looks like
-``/home/kyle/repos/PyUVS/venv/bin/python -m pip install .`` for me.
+``/home/kyle/repos/PyUVS/venv/bin/python -m pip install .``.
 
 You can now import pyuvs with ``import pyuvs``. We recommend the syntax
 ``import pyuvs as pu`` so your hopes aren't too high.
@@ -19,13 +28,22 @@ You can now import pyuvs with ``import pyuvs``. We recommend the syntax
    project comes with additional scripts for making data, creating images,
    and performing radiative transfer.
 
-Setup
------
-Regardless of which product you want to make, you'll need additional
-information. Specifically, this includes the flatfield, detector sensitivity
-curve, voltage correction, etc. I plan to have scripts that create these
-binarized arrays from the IUVS data (this way I'm not version controlling
-binarized files!) but for now, please add them manually.
+Data files
+----------
+The pyuvs library has support for the "official" data files. It assumes
+that the data files are organized according to the IUVS standard:
+
+| <IUVS-root>
+| ├── spice
+| └── iuvs-data
+|     ├── production
+|     │   ├── orbitXXXXX
+|     └── stage
+|         ├── orbitXXXXX
+
+``<IUVS-root>`` can have whatever name, but the other folders have the
+above naming convention. At some point, I will include a list of all the data
+filenames on OneDrive.
 
 Data
 ----
@@ -38,15 +56,3 @@ I'll add these when the time comes.
 Radiative Transfer
 ------------------
 I'll add these when the time comes.
-
-Data Files
-==========
-I assume that the data is organized according to the IUVS standard:
-
-| IUVS-root
-| ├── spice
-| └── iuvs-data
-|     ├── production
-|     │   ├── orbitXXXXX
-|     └── stage
-|         ├── orbitXXXXX

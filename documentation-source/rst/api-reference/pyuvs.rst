@@ -1,4 +1,4 @@
-API Reference
+API reference
 =============
 
 The pyuvs library provides utilities for working with IUVS data.
@@ -7,4 +7,5 @@ The pyuvs library provides utilities for working with IUVS data.
    :maxdepth: 1
    :caption: Contents:
 
+   anc
    constants

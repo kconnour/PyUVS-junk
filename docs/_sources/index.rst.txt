@@ -11,6 +11,7 @@ Fundamental utilities for working with MAVEN/IUVS data.
    rst/api-reference/pyuvs
    rst/data-products/data-products
    rst/images/images
+   rst/examples/index
    rst/release-notes
    rst/about-iuvs
    rst/about-pyuvs
