@@ -74,6 +74,7 @@ autodoc_member_order = 'bysource'  # Document properties in order
 autodoc_type_aliases = {
     'ArrayLike': 'ArrayLike'
 }
+autodoc_preserve_defaults = True
 
 # Sphinx gallery stuff
 sphinx_gallery_conf = {
