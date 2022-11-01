@@ -8,6 +8,13 @@ Constants
 Note that these are usable from the ``pyuvs`` namespace. I had to add the
 ``constants`` module to appease Sphinx! Ignore that part.
 
+MAVEN
+-----
+.. autosummary::
+   :toctree: generated/
+
+   orbit_insertion_date
+
 Instrument
 ----------
 .. autosummary::
