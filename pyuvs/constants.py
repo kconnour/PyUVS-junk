@@ -3,10 +3,14 @@
 Most of the values here come from the seminal `IUVS paper
 <https://link.springer.com/article/10.1007/s11214-014-0098-7>`_.
 """
+from datetime import datetime
 import numpy as np
 
 
-# TODO: Add MAVEN's datetime of orbital insertion
+orbit_insertion_date: datetime = datetime(2014, 9, 22)
+"""Date of MAVEN's orbital insertion
+
+"""
 
 spatial_slit_thickness: float = 0.1
 """Thickness of the slit [mm].
