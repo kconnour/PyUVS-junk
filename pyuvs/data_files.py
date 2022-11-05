@@ -431,11 +431,17 @@ def find_latest_apoapse_muv_file_paths_from_block(
     list[Path]
         The latest apoapse MUV file paths from the given orbit.
 
+    Examples
+    --------
+    Find the latest files from orbit 3453
+
+    >>> from pathlib import Path
+    >>> import pyuvs as pu
+    >>> p = Path('/media/kyle/McDataFace/iuvsdata/production')
+    >>> f = find_latest_apoapse_muv_file_paths_from_block(p, 3453)
+    >>> f[0]
+    PosixPath('/media/kyle/McDataFace/iuvsdata/production/orbit03400/mvn_iuv_l1b_apoapse-orbit03453-muv_20160708T044652_v13_r01.fits.gz')
+    
     """
     return find_latest_file_paths_from_block(
         data_directory, 'apoapse', orbit, 'muv')
-
-
-if __name__ == '__main__':
-    o = Orbit(3453)
-    print(o.orbit, o.code, o.block)
