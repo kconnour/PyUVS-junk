@@ -8,5 +8,7 @@ The pyuvs library provides utilities for working with IUVS data.
    :caption: Contents:
 
    anc
+   calibration
    constants
+   data-files
    spice

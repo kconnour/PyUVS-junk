@@ -351,7 +351,9 @@
     <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../anc.html">Ancillary files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../calibration.html">Calibration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../constants.html">Constants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data-files.html">Data files</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../spice.html">Spice</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="pyuvs.clear_existing_kernels.html">pyuvs.clear_existing_kernels</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pyuvs.furnish_ck.html">pyuvs.furnish_ck</a></li>
@@ -423,6 +425,19 @@ starting time!</p></li>
 <p class="rubric">Notes</p>
 <p>You must have already furnished the kernels between the starting and ending
 datetimes.</p>
+<p class="rubric">Examples</p>
+<p>Find the ephemeris time of orbit 3453.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyuvs</span> <span class="k">as</span> <span class="nn">pu</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;/media/kyle/McDataFace/spice&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pu</span><span class="o">.</span><span class="n">clear_existing_kernels</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pu</span><span class="o">.</span><span class="n">furnish_standard_kernels</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">orbits</span><span class="p">,</span> <span class="n">et</span> <span class="o">=</span> <span class="n">compute_maven_apsis_et</span><span class="p">(</span><span class="n">end_time</span><span class="o">=</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2019</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">et</span><span class="p">[</span><span class="n">orbits</span><span class="o">==</span><span class="mi">3453</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="go">521227372.7148782</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </section>

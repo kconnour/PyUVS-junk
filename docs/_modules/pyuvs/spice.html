@@ -592,6 +592,20 @@
 <span class="sd">    You must have already furnished the kernels between the starting and ending</span>
 <span class="sd">    datetimes.</span>
 
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    Find the ephemeris time of orbit 3453.</span>
+
+<span class="sd">    &gt;&gt;&gt; from pathlib import Path</span>
+<span class="sd">    &gt;&gt;&gt; from datetime import datetime</span>
+<span class="sd">    &gt;&gt;&gt; import pyuvs as pu</span>
+<span class="sd">    &gt;&gt;&gt; p = Path(&#39;/media/kyle/McDataFace/spice&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; pu.clear_existing_kernels()</span>
+<span class="sd">    &gt;&gt;&gt; pu.furnish_standard_kernels(p)</span>
+<span class="sd">    &gt;&gt;&gt; orbits, et = compute_maven_apsis_et(end_time=datetime(2019, 1, 1))</span>
+<span class="sd">    &gt;&gt;&gt; et[orbits==3453][0]</span>
+<span class="sd">    521227372.7148782</span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">et_start</span> <span class="o">=</span> <span class="n">spice</span><span class="o">.</span><span class="n">datetime2et</span><span class="p">(</span><span class="n">start_time</span><span class="p">)</span>
     <span class="n">et_end</span> <span class="o">=</span> <span class="n">spice</span><span class="o">.</span><span class="n">datetime2et</span><span class="p">(</span><span class="n">end_time</span><span class="p">)</span>
