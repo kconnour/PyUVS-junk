@@ -1,7 +1,7 @@
 import numpy as np
 from pyuvs.anc import load_voltage_correction_voltage, \
     load_voltage_correction_coefficients, \
-    load_muv_sensitivity_curve_observational
+    load_muv_sensitivity_curve_observational, load_muv_flatfield
 from pyuvs.constants import pixel_angular_size
 
 
@@ -87,28 +87,41 @@ def make_calibration_curve(
         pixel_angular_size / integration_time / spatial_bin_size
 
 
-if __name__ == "__main__":
-    from astropy.io import fits
-    from pyuvs import find_latest_apoapse_muv_file_paths_from_block
-    from pathlib import Path
-    p = Path('/media/kyle/McDataFace/iuvsdata/production')
-    f = find_latest_apoapse_muv_file_paths_from_block(p, 3453)
-    g = f[0]
-    hdul = fits.open(g)
+def make_flatfield(
+        spatial_bin_edges: np.ndarray,
+        spectral_bin_edges: np.ndarray) -> np.ndarray:
+    """Make the flatfield for a given binning configuration.
 
-    dds = hdul['detector_dark_subtracted'].data
-    sza = hdul['pixelgeometry'].data['pixel_solar_zenith_angle']
-    spectral_bin_width: int = int(np.median(hdul['binning'].data['spebinwidth'][0]))  # bins
-    spatial_bin_width: int = int(np.median(hdul['binning'].data['spabinwidth'][0]))  # bins
-    spectral_bin_low = hdul['binning'].data['spepixlo'][0, :]  # bin number
-    spectral_bin_high = hdul['binning'].data['spepixhi'][0, :]  # bin number
-    voltage: float = hdul['observation'].data['mcp_volt'][0]
-    voltage_gain: float = hdul['observation'].data['mcp_gain'][0]
-    i_time: float = hdul['observation'].data['int_time'][0]
-    w = hdul['observation'].data['wavelength'][0, 0]
+    This function will rebin the "master" 133x19 flatfield constructed from
+    data during the MY34 GDS onto the given spatial and spectral binning
+    scheme.
 
-    foo = make_gain_correction(dds, spatial_bin_width, spectral_bin_width, i_time, voltage, voltage_gain)
-    print(foo.shape)
-    bar = make_calibration_curve(w, voltage_gain, i_time, spatial_bin_width)
-    print(bar.shape)
+    Parameters
+    ----------
+    spatial_bin_edges
+        Spatial bin edges. This argument should be an array of integers.
+    spectral_bin_edges
+        Spectral bin edges. This argument should be an array of integers.
 
+    Returns
+    -------
+    np.ndarray
+        The flatfield for the given binning scheme.
+
+    """
+    # The data from which the flatfield was made had the following properties:
+    # spatial: started pixel 103, ended on 901, and had a width of 6 pixels
+    # spectra: started pixel 172, ended on 818, and had a width of 34 pixels
+    ff_expanded = np.repeat(np.repeat(load_muv_flatfield(), 6, axis=0), 34, axis=1)
+    ff1024 = np.pad(ff_expanded, ((103, 1024-901), (172, 1024-818)), mode='edge')
+
+    spatial_bins = spatial_bin_edges.shape[0]-1
+    spectral_bins = spectral_bin_edges.shape[0]-1
+
+    new_flatfield = np.zeros((spatial_bins, spectral_bins))
+    for spatial_bin in range(spatial_bins):
+        for spectral_bin in range(spectral_bins):
+            new_flatfield[spatial_bin, spectral_bin] = np.mean(
+                ff1024[spatial_bin_edges[spatial_bin]: spatial_bin_edges[spatial_bin+1],
+                       spectral_bin_edges[spectral_bin]: spectral_bin_edges[spectral_bin+1]])
+    return new_flatfield
